@@ -1,0 +1,15 @@
+  
+# Font style metadata
+name = "felix"
+
+# Optional Google font URL
+google_fonts = "Archivo:400,700|Montserrat:400,400italic,700|Montserrat"
+
+heading_font = "Archivo"
+body_font = "Montserrat"
+nav_font = "Montserrat"
+mono_font = "Montserrat"
+
+# Font size
+font_size = "20"
+font_size_small = "16"
