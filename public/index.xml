@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Felix Bragman</title>
+    <link>fbragman.github.io/</link>
+    <description>Recent content on Felix Bragman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="fbragman.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>fbragman.github.io/talk/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>fbragman.github.io/talk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>fbragman.github.io/publication/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>fbragman.github.io/publication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>fbragman.github.io/project/</link>
+      <pubDate>Tue, 26 Mar 2019 21:50:12 -0400</pubDate>
+      
+      <guid>fbragman.github.io/project/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
