@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Felix Bragman
+name: Felix J.S. Bragman
 
 # Username (this should match the folder name)
 authors:
