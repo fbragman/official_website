@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>semantic segmentatiion on Felix Bragman</title>
+    <link>https://github.com/fbragman/fbragman.github.io/tags/semantic-segmentatiion/</link>
+    <description>Recent content in semantic segmentatiion on Felix Bragman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Tue, 26 Mar 2019 21:50:12 -0400</lastBuildDate>
+    
+	    <atom:link href="https://github.com/fbragman/fbragman.github.io/tags/semantic-segmentatiion/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pulmonary image analysis</title>
+      <link>https://github.com/fbragman/fbragman.github.io/project/copd/</link>
+      <pubDate>Tue, 26 Mar 2019 21:50:12 -0400</pubDate>
+      
+      <guid>https://github.com/fbragman/fbragman.github.io/project/copd/</guid>
+      <description>&lt;p&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

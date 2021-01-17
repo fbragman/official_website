@@ -12,10 +12,10 @@ hugo -t academic # if using a theme, replace with `hugo -t <YOURTHEME>`
 cd public
 
 # Add changes to git.
-git add -A
+git add .
 
 # Commit changes.
-msg="rebuilding site $(date)"
+msg="felix is rebuilding site $(date)"
 if [ -n "$*" ]; then
 	msg="$*"
 fi
@@ -23,4 +23,3 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push origin main
-

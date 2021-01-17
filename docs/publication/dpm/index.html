@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Felix J.S. Bragman">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="We identified subtypes of patients with COPD with distinct longitudinal progression patterns using a novel machine-learning tool called Subtype and Stage Inference (SuStaIn) and evaluated the potential for unsupervised diseased progression modelling for patient stratification in COPD. We demonstrated two distinct patterns of disease progression in COPD using SuStaIn, likely representing different endotypes. One third of healthy smokers have detectable imaging changes, suggesting a new biomarker of early COPD.">
+
+  
+  <link rel="alternate" hreflang="en-uk" href="https://github.com/fbragman/fbragman.github.io/publication/dpm/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#328cc1">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:400,400italic,700|Raleway&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/fbragman/fbragman.github.io/css/academic.min.c321eb571eb2fa2bc77869ada967c591.css">
+
+  
+    
+    
+    
+    
+      
+    
+    
+    
+    <link rel="stylesheet" href="/fbragman/fbragman.github.io/css/academic.58228891496878e72d8d7ab71cefbcec.css">
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/fbragman/fbragman.github.io/site.webmanifest">
+  <link rel="icon" type="image/png" href="/fbragman/fbragman.github.io/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/fbragman/fbragman.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="https://github.com/fbragman/fbragman.github.io/publication/dpm/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@FelixJSB">
+  <meta property="twitter:creator" content="@FelixJSB">
+  
+  <meta property="og:site_name" content="Felix Bragman">
+  <meta property="og:url" content="https://github.com/fbragman/fbragman.github.io/publication/dpm/">
+  <meta property="og:title" content="Disease progression modelling in Chronic Obstructive Pulmonary Disease | Felix Bragman">
+  <meta property="og:description" content="We identified subtypes of patients with COPD with distinct longitudinal progression patterns using a novel machine-learning tool called Subtype and Stage Inference (SuStaIn) and evaluated the potential for unsupervised diseased progression modelling for patient stratification in COPD. We demonstrated two distinct patterns of disease progression in COPD using SuStaIn, likely representing different endotypes. One third of healthy smokers have detectable imaging changes, suggesting a new biomarker of early COPD."><meta property="og:image" content="https://github.com/fbragman/fbragman.github.io/publication/dpm/featured.png">
+  <meta property="twitter:image" content="https://github.com/fbragman/fbragman.github.io/publication/dpm/featured.png"><meta property="og:locale" content="en-uk">
+  
+  <meta property="article:published_time" content="2018-09-01T20:59:44&#43;01:00">
+  
+  <meta property="article:modified_time" content="2018-09-01T20:59:44&#43;01:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Disease progression modelling in Chronic Obstructive Pulmonary Disease | Felix Bragman</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/fbragman/fbragman.github.io/">Felix Bragman</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/#project"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fbragman/fbragman.github.io/files/cv.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">Disease progression modelling in Chronic Obstructive Pulmonary Disease</h1>
+
+  
+  <p class="page-subtitle">Unsupervised clustering and disease progression modelling of COPD</p>
+  
+
+  
+
+
+
+<meta content="2018-09-01 20:59:44 &#43;0100 BST" itemprop="datePublished">
+<meta content="2018-09-01 20:59:44 &#43;0100 BST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/alexandra-young/">Alexandra Young*</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/felix-bragman/">Felix Bragman*</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/bojidar-rangelov/">Bojidar Rangelov</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/meilan-han/">MeiLan Han</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/david-lynch/">David Lynch</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/david-j.-hawkes/">David J. Hawkes</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fbragman/fbragman.github.io/authors/daniel-c.-alexander-and-john-r.-hurst/">Daniel C. Alexander and John R. Hurst</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>September 2018</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="https://discovery.ucl.ac.uk/id/eprint/10085101/7/Hurst_Disease%20Progression%20Modelling%20in%20Chronic%20Obstructive%20Pulmonary%20Disease%20%28COPD%29_AAM.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1" href="/fbragman/fbragman.github.io/project/copd/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 358px;">
+  <div style="position: relative">
+    <img src="/fbragman/fbragman.github.io/publication/dpm/featured_hu2628e37571ab0c6d38274b00be9d754f_906936_720x0_resize_lanczos_2.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    
+    <h3>Abstract</h3>
+    <p class="pub-abstract" itemprop="text"><p><strong>Rationale</strong>: The decades-long progression of chronic obstructive pulmonary disease (COPD) renders identifying different trajectories of disease progression challenging.Objectives: To identify subtypes of patients with COPD with distinct longitudinal progression patterns using a novel machine-learning tool called Subtype and Stage Inference (SuStaIn) and to evaluate the utility of SuStaIn for patient stratification in COPD.</p>
+<p><strong>Methods</strong>: We applied SuStaIn to cross-sectional computed tomography imaging markers in 3,698 Global Initiative for Chronic Obstructive Lung Disease (GOLD) 1-4 patients and 3,479 controls from the COPDGene (COPD Genetic Epidemiology) study to identify subtypes of patients with COPD. We confirmed the identified subtypes and progression patterns using ECLIPSE (Evaluation of COPD Longitudinally to Identify Predictive Surrogate Endpoints) data. We assessed the utility of SuStaIn for patient stratification by comparing SuStaIn subtypes and stages at baseline with longitudinal follow-up data.</p>
+<p><strong>Measurements and Main Results</strong>: We identified two trajectories of disease progression in COPD: a Tissue→Airway subtype (n = 2,354, 70.4%), in which small airway dysfunction and emphysema precede large airway wall abnormalities, and an Airway→Tissue subtype (n = 988, 29.6%), in which large airway wall abnormalities precede emphysema and small airway dysfunction. Subtypes were reproducible in ECLIPSE. Baseline stage in both subtypes correlated with future FEV1/FVC decline (r = -0.16 [P &lt; 0.001] in the Tissue→Airway group; r = -0.14 [P = 0.011] in the Airway→Tissue group). SuStaIn placed 30% of smokers with normal lung function at elevated stages, suggesting imaging changes consistent with early COPD. Individuals with early changes were 2.5 times more likely to meet COPD diagnostic criteria at follow-up.</p>
+<p><strong>Conclusions</strong>: We demonstrate two distinct patterns of disease progression in COPD using SuStaIn, likely representing different endotypes. One third of healthy smokers have detectable imaging changes, suggesting a new biomarker of early COPD.</p>
+</p>
+    
+
+    
+
+    
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Publication</div>
+          <div class="col-12 col-md-9"><strong>American Journal for Respiratory and Critical Care Medicine (acceptance rate &lt; 8%)</strong></div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+    
+
+    <div class="space-below"></div>
+
+    <div class="article-style"></div>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/fbragman/fbragman.github.io/authors/alexandra-young/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  </div>
+</div>
+
+
+<div class="article-container article-widget">
+  
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/fbragman/fbragman.github.io/publication/iccv/" rel="next">Stochastic Filter Groups for Multi-Task CNNs - Learning Specialist and Generalist Convolution Kernels</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/fbragman/fbragman.github.io/publication/miccai/" rel="prev">Uncertainty in multitask learning: joint representations for probabilistic MR-only radiotherapy planning</a>
+  </div>
+  
+</div>
+
+</div>
+
+
+      
+
+    
+    
+    
+    <script src="/fbragman/fbragman.github.io/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js" integrity="sha256-0w92bcB21IY5+rGI84MGj52jNfHNbXVeQLrZ0CGdjNY=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/fbragman/fbragman.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/fbragman/fbragman.github.io/js/academic.min.31a6b268a1074bc800cf69e59192cb35.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
