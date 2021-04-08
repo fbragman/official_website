@@ -1,6 +1,6 @@
 +++
 title = "Disease progression patterns in COPD"
-date = 2018-09-25 # Schedule page publish date.
+date = 2018-08-29 # Schedule page publish date.
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ['Felix Bragman']
@@ -12,14 +12,14 @@ authors = ['Felix Bragman']
 all_day = false
 
 # Location of event.
-location = "Paris, France"
+location = "London, United Kingdom"
 
 # Name of event and optional event URL.
-event = "ERS 2018"
-event_url = "https://erscongress.org/"
+event = "European Respiratory Society International Congress"
+event_url = "https://www.ers-education.org/events/international-congress/paris-2018/"
 
 # Abstract. What's your talk about?
-abstract = "Oral at European Respiratory Society Congress (ERS) 2018"
+abstract = "Oral presentation at the 2018 European Respiratory Society International Congress"
 
 # Summary. An optional shortened abstract.
 summary = ""
@@ -37,10 +37,10 @@ tags = []
 #   E.g. `slides = "example-slides"` references 
 #   `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides = ""
+url_slides = "ers_slides.pdf"
 
 # Optional filename of your slides within your talk folder or a URL.
-url_slides = "pres.pdf"
+
 
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
@@ -51,7 +51,7 @@ url_slides = "pres.pdf"
 projects = []
 
 # Links (optional).
-url_pdf = "https://erj.ersjournals.com/content/52/suppl_62/OA2139"
+url_pdf = ""
 url_video = ""
 url_code = ""
 

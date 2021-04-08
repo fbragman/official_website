@@ -9,8 +9,9 @@ title = "Felix Bragman"
 
 # The URL of your site.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
-baseurl = "https://github.com/fbragman/fbragman.github.io"
-publishDir = "docs"
+baseurl = "https://fbragman.github.io/"
+relativeURLs = true
+uglyURLs = true
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
